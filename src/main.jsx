@@ -5,6 +5,7 @@ import './styles/index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './routes/ErrorPage.jsx'
 import Account from './routes/Account.jsx'
+import Data from './routes/Data.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: 'account',
         element: <Account />,
+      },
+      {
+        path: 'data',
+        element: <Data />,
       },
     ],
   },
