@@ -14,10 +14,16 @@ import {
   getRegionList,
 } from './login.js'
 
+import cors from 'cors'
 const app = express()
+const corsOptions = {
+  origin: 'http://localhost:5173',
+}
+
+app.use(cors(corsOptions))
 
 app.get('/api', (req, res) => {
-  res.send('Online!')
+  res.json({ message: 'Online!' })
 })
 // Login page
 
@@ -30,7 +36,7 @@ app.get('/api/user/bordeaux', async (req, res) => {
 })
 
 app.get('/api/sensor', async (req, res) => {
-  res.send(await getSensor())
+  res.json(await getSensor())
 })
 
 app.get('/api/report', async (req, res) => {
@@ -68,11 +74,6 @@ app.get('/api/report-list/:gasType', async (req, res) => {
 
 app.get('/api/region-list', async (req, res) => {
   res.send(await getRegionList())
-})
-
-app.use((err, req, res, next) => {
-  console.error(err)
-  res.status(500).send('Something went wrong!')
 })
 
 app.listen(3000, () => {
