@@ -1,0 +1,40 @@
+.navbar {
+  background-color: white;
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid hsl(212, 73%, 68%);
+}
+
+.index {
+  display: block;
+  color: hsl(212, 53%, 51%);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  height: 100%;
+}
+
+.navbar img {
+  height: 100%;
+  width: auto;
+  padding-left: 400px;
+}
+
+.navbar a {
+  height: 100%;
+}
+
+.index:hover {
+  background-color: #ddd;
+}
+
+.buttons {
+  display: flex;
+  padding-right: 400px;
+}
