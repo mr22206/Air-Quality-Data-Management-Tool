@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Index() {
   return (
-    <div style={{ width: '500px', textAlign: 'center' }}>
+    <div className="w-[900px] text-center text-3xl font-bold">
       <h1
         style={{
           background: 'linear-gradient(90deg, #87CEFA, #90EE90)',
