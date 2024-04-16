@@ -43,11 +43,11 @@ export default function Account() {
         </p>
         <div className="flex  flex-col gap-3">
           <div className="flex ">
-            <label className="bg-green-800 rounded-l-md w-[70px] h-[56px] flex justify-center items-center">
+            <label className="bg-[#36AD56] rounded-l-md w-[70px] h-[56px] flex justify-center items-center">
               <img className="w-5 h-5 " src="/user-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md w-full p-4 bg-white text-black border  h-[56px] border-green-800"
+              className="rounded-r-md w-full p-4 bg-white text-black border  h-[56px] border-[#36AD56]"
               placeholder="Username"
               required
               type="text"
@@ -58,11 +58,11 @@ export default function Account() {
           </div>
 
           <div className="flex  rounded-md">
-            <label className=" bg-green-800 rounded-l-md  w-[70px] h-[56px]  flex justify-center items-center">
+            <label className=" bg-[#36AD56] rounded-l-md  w-[70px] h-[56px]  flex justify-center items-center">
               <img className="w-5 h-5" src="/lock-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md  w-full p-4 bg-white h-[56px]  text-black border border-green-800"
+              className="rounded-r-md  w-full p-4 bg-white h-[56px]  text-black border border-[#36AD56]"
               type="password"
               {...register('password')}
               placeholder="Password"
@@ -71,7 +71,7 @@ export default function Account() {
           </div>
 
           <button
-            className=" h-12 w-[450px] text-white bg-green-800 rounded-md hover:bg-green-900 text-l"
+            className=" h-12 w-[450px] text-white bg-[#36AD56] rounded-md hover:bg-green-700 text-l"
             type="submit"
           >
             {isLoggingIn ? 'Logging in...' : 'Log In'}
