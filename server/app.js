@@ -1,4 +1,6 @@
 import express from 'express'
+// This line is needed to parse the body of incoming POST requests
+
 import {
   getAgency,
   getUser,
@@ -12,6 +14,7 @@ import {
   getProdRate,
   getReportList,
   getRegionList,
+  getCreds,
 } from './login.js'
 
 import cors from 'cors'
@@ -20,6 +23,7 @@ const corsOptions = {
   origin: 'http://localhost:5173',
 }
 
+app.use(express.json());
 app.use(cors(corsOptions))
 
 app.get('/api', (req, res) => {
@@ -75,6 +79,20 @@ app.get('/api/report-list/:gasType', async (req, res) => {
 app.get('/api/region-list', async (req, res) => {
   res.json(await getRegionList())
 })
+
+
+app.post('/api/creds', async (req, res) => {
+  const { username, password } = req.body;
+  
+  const creds = await getCreds(username, password);
+  
+  if (creds.length > 0) {
+    res.json({ loggedIn: true })
+  } else {
+    res.json({ loggedIn: false })
+  }
+});
+
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000')

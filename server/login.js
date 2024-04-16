@@ -1,5 +1,6 @@
 import mysql from 'mysql2'
 import dotenv from 'dotenv'
+import axios from 'axios'
 dotenv.config()
 
 const pool = mysql.createPool({
@@ -68,5 +69,10 @@ export async function getReportList(gasType) {
 
 export async function getRegionList() {
   const [rows] = await pool.query("SELECT * FROM Region INNER JOIN City ON Region.id_rgn = City.id_rgn INNER JOIN Agency ON City.id_cty = Agency.id_cty INNER JOIN Employee ON Employee.id_agc = Agency.id_agc INNER JOIN Technical_Agent ON Employee.id_emp = Technical_Agent.id_emp INNER JOIN Sensor ON Technical_Agent.id_emp = Sensor.id_emp GROUP BY name_rgn HAVING COUNT(sensor.id_sns) > COUNT(agency.id_agc)")
+  return rows
+}
+
+export async function getCreds(username, password) {
+  const [rows] = await pool.query(`SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`)
   return rows
 }
