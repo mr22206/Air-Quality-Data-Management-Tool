@@ -33,9 +33,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  color: hsl(212, 73%, 68%);
+  color: rgb(22, 101, 52);
   /*background-color: #8698c9;*/
-  background-color: aliceblue;
+  background-color: rgb(242, 255, 240);
 }
 
 h1 {
@@ -74,10 +74,10 @@ button:focus-visible {
 }
 
 select {
-  color: hsl(212, 53%, 51%);
+  color: rgb(22, 101, 52);
   background-color: white;
   border-radius: 8px;
-  border: 1px solid hsl(212, 53%, 51%);
+  border: 1px solid rgb(22, 101, 52);
   width: 200px;
   height: 50px;
 }

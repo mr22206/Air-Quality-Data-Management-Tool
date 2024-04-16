@@ -8,12 +8,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid hsl(212, 73%, 68%);
+  border-bottom: 2px solid rgb(22, 101, 52);
 }
 /*TODO make it so that current router is shown on button*/
 .index {
   display: block;
-  color: hsl(212, 73%, 68%);
+  color: rgb(22, 101, 52);
   text-align: center;
   padding: 14px 20px;
   height: 100%;
@@ -21,18 +21,21 @@
 }
 
 .index:hover {
-  color: hsl(212, 53%, 51%);
+  color: hsl(110, 53%, 51%);
   text-decoration: underline;
 }
 
 .navbar img {
-  height: 100%;
+  height: 65%;
   width: auto;
-  padding-left: 400px;
+  margin-left: 400px;
 }
 
 .navbar a {
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {

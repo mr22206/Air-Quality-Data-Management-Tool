@@ -3,21 +3,32 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 //https://www.npmjs.com/package/react-toastify
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Account() {
+  const navigate = useNavigate()
+  const [isLoggingIn, setIsLoggingIn] = useState(false)
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
-
-  const onSubmit = (data) => {
-    const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000))
-    toast.promise(resolveAfter3Sec, {
-      pending: 'Attempting to login user ' + data.username,
-      success: 'Login successfull 👌',
-      error: 'Login rejected 🤯',
-    })
+  const onSubmit = async (data) => {
+    try {
+      // Simulating an async operation (login)
+      setIsLoggingIn(true)
+      await new Promise((resolve) => setTimeout(resolve, 3000))
+      // If login is successful, navigate to home route '/'
+      navigate('/')
+      toast.success('Login successful 👌')
+    } catch (error) {
+      // Handle login failure
+      toast.error('Login rejected 🤯')
+    } finally {
+      setIsLoggingIn(false)
+    }
   }
 
   return (
@@ -32,11 +43,11 @@ export default function Account() {
         </p>
         <div className="flex  flex-col gap-3">
           <div className="flex ">
-            <label className="bg-blue-400 rounded-l-md w-[70px] h-[56px] flex justify-center items-center">
+            <label className="bg-green-800 rounded-l-md w-[70px] h-[56px] flex justify-center items-center">
               <img className="w-5 h-5 " src="/user-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md w-full p-4 bg-white text-black border  h-[56px] border-blue-400"
+              className="rounded-r-md w-full p-4 bg-white text-black border  h-[56px] border-green-800"
               placeholder="Username"
               required
               type="text"
@@ -47,11 +58,11 @@ export default function Account() {
           </div>
 
           <div className="flex  rounded-md">
-            <label className=" bg-blue-400 rounded-l-md  w-[70px] h-[56px]  flex justify-center items-center">
+            <label className=" bg-green-800 rounded-l-md  w-[70px] h-[56px]  flex justify-center items-center">
               <img className="w-5 h-5" src="/lock-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md  w-full p-4 bg-white h-[56px]  text-black border border-blue-400"
+              className="rounded-r-md  w-full p-4 bg-white h-[56px]  text-black border border-green-800"
               type="password"
               {...register('password')}
               placeholder="Password"
@@ -60,10 +71,10 @@ export default function Account() {
           </div>
 
           <button
-            className=" h-12 w-[450px] text-white bg-blue-400 rounded-md hover:bg-blue-500 text-l"
+            className=" h-12 w-[450px] text-white bg-green-800 rounded-md hover:bg-green-900 text-l"
             type="submit"
           >
-            SIGN IN
+            {isLoggingIn ? 'Logging in...' : 'Log In'}
           </button>
         </div>
       </form>
