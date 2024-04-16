@@ -1,10 +1,10 @@
-import { info } from 'autoprefixer'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 //https://www.npmjs.com/package/react-toastify
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function Account() {
   const navigate = useNavigate()
@@ -15,20 +15,26 @@ export default function Account() {
     handleSubmit,
     formState: { errors },
   } = useForm()
-  const onSubmit = async (data) => {
+
+  const onSubmit = (data) => {
+    const { username, password } = data
     try {
-      // Simulating an async operation (login)
       setIsLoggingIn(true)
-      await new Promise((resolve) => setTimeout(resolve, 3000))
-      // If login is successful, navigate to home route '/'
+      axios.post('http://localhost:3000/api/creds', { username, password })
       navigate('/')
       toast.success('Login successful 👌')
-    } catch (error) {
-      // Handle login failure
+    } catch (err) {
       toast.error('Login rejected 🤯')
     } finally {
       setIsLoggingIn(false)
     }
+
+    const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000))
+    toast.promise(resolveAfter3Sec, {
+      pending: 'Attempting to login user ' + data.username,
+      success: 'Login successful 👌',
+      error: 'Login rejected 🤯',
+    })
   }
 
   return (
@@ -78,7 +84,11 @@ export default function Account() {
           </button>
         </div>
       </form>
-      <img className=" w-[372px] rounded-r-xl" src="/login.png" />
+      <img
+        className=" w-[372px] rounded-r-xl"
+        src="/login.png"
+        alt="Login illustration"
+      />
     </div>
   )
 }
