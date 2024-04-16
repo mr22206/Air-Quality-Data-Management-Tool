@@ -1,6 +1,5 @@
 import mysql from 'mysql2'
 import dotenv from 'dotenv'
-import axios from 'axios'
 dotenv.config()
 
 const pool = mysql.createPool({
