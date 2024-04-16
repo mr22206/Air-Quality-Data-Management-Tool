@@ -10,14 +10,19 @@
   align-items: center;
   border-bottom: 2px solid hsl(212, 73%, 68%);
 }
-
+/*TODO make it so that current router is shown on button*/
 .index {
   display: block;
-  color: hsl(212, 53%, 51%);
+  color: hsl(212, 73%, 68%);
   text-align: center;
   padding: 14px 20px;
-  text-decoration: none;
   height: 100%;
+  position: relative;
+}
+
+.index:hover {
+  color: hsl(212, 53%, 51%);
+  text-decoration: underline;
 }
 
 .navbar img {
@@ -28,10 +33,6 @@
 
 .navbar a {
   height: 100%;
-}
-
-.index:hover {
-  background-color: #ddd;
 }
 
 .buttons {

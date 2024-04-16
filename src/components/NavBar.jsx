@@ -7,10 +7,10 @@ export default function NavBar() {
       </a>
       <div className={styles.buttons}>
         <a className={styles.index} href="/data">
-          Data
+          <p>Data</p>
         </a>
         <a className={styles.index} href="/account">
-          Login
+          <p>Login</p>
         </a>
       </div>
     </div>
