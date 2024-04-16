@@ -34,6 +34,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: hsl(212, 73%, 68%);
+  /*background-color: #8698c9;*/
+  background-color: aliceblue;
 }
 
 h1 {
@@ -82,4 +84,9 @@ select {
 
 p {
   font-size: 20px;
+}
+
+input,
+button:focus {
+  outline: none;
 }
