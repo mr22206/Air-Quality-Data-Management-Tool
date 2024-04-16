@@ -21,18 +21,18 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-a
+
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
 // Login page
 
 app.get('/api/agency', async (req, res) => {
-  res.send(await getAgency())
+  res.json(await getAgency())
 })
 
 app.get('/api/user/bordeaux', async (req, res) => {
-  res.send(await getUser())
+  res.json(await getUser())
 })
 
 app.get('/api/sensor', async (req, res) => {
@@ -40,40 +40,40 @@ app.get('/api/sensor', async (req, res) => {
 })
 
 app.get('/api/report', async (req, res) => {
-  res.send(await getReport())
+  res.json(await getReport())
 })
 
 app.get('/api/gas-emissions', async (req, res) => {
-  res.send(await getGasEmissions())
+  res.json(await getGasEmissions())
 })
 
 app.get('/api/most-polluting', async (req, res) => {
-  res.send(await getMostPolluting())
+  res.json(await getMostPolluting())
 })
 
 app.get('/api/sort-report', async (req, res) => {
-  res.send(await sortReport())
+  res.json(await sortReport())
 })
 
 app.get('/api/agent', async (req, res) => {
-  res.send(await getAgent())
+  res.json(await getAgent())
 })
 
 app.get('/api/emission-sum', async (req, res) => {
-  res.send(await getEmissionSum())
+  res.json(await getEmissionSum())
 })
 
 app.get('/api/prod-rate', async (req, res) => {
-  res.send(await getProdRate())
+  res.json(await getProdRate())
 })
 
 app.get('/api/report-list/:gasType', async (req, res) => {
   const gasType = req.params.gasType
-  res.send(await getReportList(gasType))
+  res.json(await getReportList(gasType))
 })
 
 app.get('/api/region-list', async (req, res) => {
-  res.send(await getRegionList())
+  res.json(await getRegionList())
 })
 
 app.listen(3000, () => {
