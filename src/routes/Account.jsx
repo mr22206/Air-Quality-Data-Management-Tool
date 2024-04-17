@@ -1,10 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-//https://www.npmjs.com/package/react-toastify
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 import axios from 'axios'
+import 'react-toastify/dist/ReactToastify.css'
+import Data from './Data.jsx'
 
 export default function Account() {
   const navigate = useNavigate()
@@ -18,23 +16,38 @@ export default function Account() {
 
   const onSubmit = (data) => {
     const { username, password } = data
-    try {
-      setIsLoggingIn(true)
-      axios.post('http://localhost:3000/api/creds', { username, password })
-      navigate('/')
-      toast.success('Login successful 👌')
-    } catch (err) {
-      toast.error('Login rejected 🤯')
-    } finally {
-      setIsLoggingIn(false)
-    }
 
     const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000))
-    toast.promise(resolveAfter3Sec, {
-      pending: 'Attempting to login user ' + data.username,
-      success: 'Login successful 👌',
-      error: 'Login rejected 🤯',
-    })
+
+    const loginPromise = axios
+      .post('http://localhost:3000/api/creds', { username, password })
+      .then((response) => {
+        return resolveAfter3Sec.then(() => {
+          if (response.data.loggedIn) {
+            return 'Login successful 👌'
+          } else {
+            throw new Error('Login rejected 🤯')
+          }
+        })
+      })
+      .catch((error) => {
+        return resolveAfter3Sec.then(() => {
+          throw new Error('An error occurred 🤯')
+        })
+      })
+
+    toast.promise(
+      loginPromise,
+      {
+        pending: 'Attempting to login user ' + username,
+        success: 'Login successful 👌',
+        error: 'An error occurred 🤯',
+      },
+      {
+        autoClose: true,
+        closeOnClick: true,
+      }
+    )
   }
 
   return (
