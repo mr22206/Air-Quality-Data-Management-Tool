@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css'
-import Data from './Data.jsx'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Account() {
   const navigate = useNavigate()
