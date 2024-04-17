@@ -8,12 +8,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid rgb(22, 101, 52);
+  border-bottom: 2px solid var(--custom-100);
 }
 /*TODO make it so that current router is shown on button*/
 .index {
   display: block;
-  color: rgb(22, 101, 52);
+
   text-align: center;
   padding: 14px 20px;
   height: 100%;
@@ -36,6 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--custom-300);
 }
 
 .buttons {

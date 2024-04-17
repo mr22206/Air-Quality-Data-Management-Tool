@@ -38,22 +38,24 @@ export default function Account() {
   }
 
   return (
-    <div className="bg-white rounded-xl w-[900px] flex justify-between items-center p-2">
+    <div className="bg-white rounded-xl w-[100vw] h-[100vh] flex justify-between items-center p-2 sm:w-[600px] lg:w-[900px] sm:h-[546px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-full p-6 justify-center items-center "
       >
-        <h1 className="text-black font-bold ">Welcome back !</h1>
+        <h1 className="text-black font-bold text-center leading-none pb-2 sm:leading-none sm:pb-0">
+          Welcome back !
+        </h1>
         <p className="text-gray-500 pb-10 pl-1">
           Please enter credentials to login.
         </p>
-        <div className="flex  flex-col gap-3">
+        <div className="flex  flex-col gap-4 sm:gap-3">
           <div className="flex ">
-            <label className="bg-[#36AD56] rounded-l-md w-[70px] h-[56px] flex justify-center items-center">
+            <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px]">
               <img className="w-5 h-5 " src="/user-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md w-full p-4 bg-white text-black border  h-[56px] border-[#36AD56]"
+              className="rounded-r-md w-[250px]  p-4 bg-white h-[56px]  text-black border border-custom-400 sm:w-full"
               placeholder="Username"
               required
               type="text"
@@ -64,11 +66,11 @@ export default function Account() {
           </div>
 
           <div className="flex  rounded-md">
-            <label className=" bg-[#36AD56] rounded-l-md  w-[70px] h-[56px]  flex justify-center items-center">
+            <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px]">
               <img className="w-5 h-5" src="/lock-icon.png"></img>
             </label>
             <input
-              className="rounded-r-md  w-full p-4 bg-white h-[56px]  text-black border border-[#36AD56]"
+              className="rounded-r-md w-[250px]  p-4 bg-white h-[56px]  text-black border border-custom-400 sm:w-full"
               type="password"
               {...register('password')}
               placeholder="Password"
@@ -77,7 +79,7 @@ export default function Account() {
           </div>
 
           <button
-            className=" h-12 w-[450px] text-white bg-[#36AD56] rounded-md hover:bg-green-700 text-l"
+            className=" h-12 w-[306px]  text-white bg-custom-400 rounded-md hover:bg-custom-500 text-l sm:w-[450px]"
             type="submit"
           >
             {isLoggingIn ? 'Logging in...' : 'Log In'}
@@ -85,7 +87,7 @@ export default function Account() {
         </div>
       </form>
       <img
-        className=" w-[372px] rounded-r-xl"
+        className="hidden w-[372px] rounded-r-xl lg:block"
         src="/login.png"
         alt="Login illustration"
       />
