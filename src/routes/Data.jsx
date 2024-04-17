@@ -17,6 +17,7 @@ export default function Data() {
         headers: { accept: 'application/json' },
       })
         .then((response) => {
+          console.log(response)
           if (!response.ok) {
             throw new Error('Failed to fetch data')
           }
@@ -44,8 +45,19 @@ export default function Data() {
     <div>
       <select onChange={handleChange}>
         <option value="">Select an option</option>
-        <option value="getSensor">Agency</option>
-        <option value="">User</option>
+        <option value="">Check</option>
+        <option value="agency">Agency</option>
+        <option value="user/bordeaux">User</option>
+        <option value="sensor">Sensor</option>
+        <option value="report">Report</option>
+        <option value="gas-emissions">Gas Emissions</option>
+        <option value="most-polluting">Most Polluting</option>
+        <option value="sort-report">Sort Report</option>
+        <option value="agent">Agent</option>
+        <option value="emission-sum">Emission Sum</option>
+        <option value="prod-rate">Prod Rate</option>
+        <option value="report-list">Report List</option>
+        <option value="region-list">Region List</option>
         {/* Add more options as needed */}
       </select>
 
