@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
+import Data from './Data.jsx';
 
 export default function Account() {
   const {
@@ -12,23 +13,37 @@ export default function Account() {
 
   const onSubmit = (data) => {
     const { username, password } = data;
-
-    axios.post('http://localhost:3000/api/creds', { username, password })
-    .then(response => {
-      // handle success
-      console.log(response);
-    })
-    .catch(error => {
-      // handle error
-      console.log(error);
-    });
-
-    const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000))
-    toast.promise(resolveAfter3Sec, {
-      pending: 'Attempting to login user ' + data.username,
-      success: 'Login successful 👌',
-      error: 'Login rejected 🤯',
-    });
+  
+    const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000));
+  
+    const loginPromise = axios.post('http://localhost:3000/api/creds', { username, password })
+      .then(response => {
+        return resolveAfter3Sec.then(() => {
+          if (response.data.loggedIn) {
+            return 'Login successful 👌';
+          } else {
+            throw new Error('Login rejected 🤯');
+          }
+        });
+      })
+      .catch(error => { 
+        return resolveAfter3Sec.then(() => {
+          throw new Error('An error occurred 🤯');
+        });
+      });
+  
+    toast.promise(
+      loginPromise,
+      {
+        pending: 'Attempting to login user ' + username,
+        success: 'Login successful 👌',
+        error: 'An error occurred 🤯',
+      },
+      {
+        autoClose: true,
+        closeOnClick: true,
+      }
+    );
   };
 
   return (
