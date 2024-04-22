@@ -32,7 +32,9 @@ app.get('/api', (req, res) => {
 // Login page
 
 app.get('/api/agency', async (req, res) => {
-  res.json(await getAgency())
+  const agencies = await getAgency()
+  console.log(agencies)
+  res.json({ queryResult: agencies })
 })
 
 app.get('/api/user/bordeaux', async (req, res) => {

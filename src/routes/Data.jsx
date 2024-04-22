@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import ObjectArrayRenderer from '../components/ObjectArrayRenderer'
 
 export default function Data() {
   const [data, setData] = useState(null)
-
   const [error, setError] = useState(null)
 
   const handleChange = async (event) => {
@@ -15,6 +15,7 @@ export default function Data() {
       // Show pending toast notification
       const promise = fetch(`http://localhost:3000/api/${selectedValue}`, {
         headers: { accept: 'application/json' },
+        method: 'GET',
       })
         .then((response) => {
           console.log(response)
@@ -42,8 +43,8 @@ export default function Data() {
   }
 
   return (
-    <div>
-      <select onChange={handleChange}>
+    <div className="flex flex-col items-center justify-center pt-[100px]">
+      <select onChange={handleChange} className="mb-4">
         <option value="">Select an option</option>
         <option value="">Check</option>
         <option value="agency">Agency</option>
@@ -61,8 +62,11 @@ export default function Data() {
         {/* Add more options as needed */}
       </select>
 
-      {error && <div>Error: {error}</div>}
-      {data && <div>{data.message}</div>}
+      {error && <div className="text-red-600">Error: {error}</div>}
+
+      {data && (
+        <ObjectArrayRenderer className="pt-[300px]" data={data.queryResult} />
+      )}
     </div>
   )
 }
