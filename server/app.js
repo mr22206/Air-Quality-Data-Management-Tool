@@ -1,6 +1,4 @@
 import express from 'express'
-// This line is needed to parse the body of incoming POST requests
-
 import {
   getAgency,
   getUser,
@@ -15,9 +13,10 @@ import {
   getReportList,
   getRegionList,
   getCreds,
-} from './login.js'
+} from './utils/queries.js'
 
 import cors from 'cors'
+
 const app = express()
 const corsOptions = {
   origin: 'http://localhost:5173',
@@ -29,70 +28,133 @@ app.use(cors(corsOptions))
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
+
 // Login page
 
 app.get('/api/agency', async (req, res) => {
-  const agencies = await getAgency()
-  console.log(agencies)
-  res.json({ queryResult: agencies })
+  try {
+    const agencies = await getAgency()
+    res.json({ queryResult: agencies })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/user/bordeaux', async (req, res) => {
-  res.json(await getUser())
+  try {
+    const users = await getUser()
+    res.json({ queryResult: users })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/sensor', async (req, res) => {
-  res.json(await getSensor())
+  try {
+    const sensors = await getSensor()
+    res.json({ queryResult: sensors })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/report', async (req, res) => {
-  res.json(await getReport())
+  try {
+    const reports = await getReport()
+    res.json({ queryResult: reports })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/gas-emissions', async (req, res) => {
-  res.json(await getGasEmissions())
+  try {
+    const gasEmissions = await getGasEmissions()
+    res.json({ queryResult: gasEmissions })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/most-polluting', async (req, res) => {
-  res.json(await getMostPolluting())
+  try {
+    const mostPolluting = await getMostPolluting()
+    res.json({ queryResult: mostPolluting })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/sort-report', async (req, res) => {
-  res.json(await sortReport())
+  try {
+    const sortedReports = await sortReport()
+    res.json({ queryResult: sortedReports })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/agent', async (req, res) => {
-  res.json(await getAgent())
+  try {
+    const agents = await getAgent()
+    res.json({ queryResult: agents })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/emission-sum', async (req, res) => {
-  res.json(await getEmissionSum())
+  try {
+    const emissionSum = await getEmissionSum()
+    res.json({ queryResult: emissionSum })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/prod-rate', async (req, res) => {
-  res.json(await getProdRate())
+  try {
+    const prodRate = await getProdRate()
+    res.json({ queryResult: prodRate })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/report-list/:gasType', async (req, res) => {
-  const gasType = req.params.gasType
-  res.json(await getReportList(gasType))
+  try {
+    const gasType = req.params.gasType
+    const reportList = await getReportList(gasType)
+    res.json({ queryResult: reportList })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.get('/api/region-list', async (req, res) => {
-  res.json(await getRegionList())
+  try {
+    const regionList = await getRegionList()
+    res.json({ queryResult: regionList })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 app.post('/api/creds', async (req, res) => {
   const { username, password } = req.body
 
-  const creds = await getCreds(username, password)
+  try {
+    const creds = await getCreds(username, password)
 
-  if (creds.length > 0) {
-    res.json({ loggedIn: true })
-    console.log('doudou')
-  } else {
-    res.json({ loggedIn: false })
-    console.log('coucou')
+    if (creds.length > 0) {
+      res.json({ loggedIn: true })
+      console.log('doudou')
+    } else {
+      res.json({ loggedIn: false })
+      console.log('coucou')
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message })
   }
 })
 
