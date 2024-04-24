@@ -1,8 +1,6 @@
 import mysql from 'mysql2'
-import dotenv from 'dotenv'
-const process = dotenv.config()
 
-const pool = mysql
+export const pool = mysql
   .createPool({
     host: 'localhost',
     user: 'root',
@@ -85,7 +83,7 @@ export async function getReportList(gasType) {
   const [rows] = await pool.query(
     `SELECT report.* FROM report JOIN reports ON report.id_rep = reports.id_rep JOIN gas ON reports.id_gas = gas.id_gas WHERE name_gas = '${gasType}'`
   )
-  return
+  return rows
 }
 
 export async function getRegionList() {

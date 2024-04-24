@@ -14,8 +14,8 @@ import {
   getRegionList,
   getCreds,
 } from './utils/queries.js'
-
 import cors from 'cors'
+import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
 
 const app = express()
 const corsOptions = {
@@ -153,6 +153,21 @@ app.post('/api/creds', async (req, res) => {
       res.json({ loggedIn: false })
       console.log('coucou')
     }
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+app.post('/api/ask-ai', async (req, res) => {
+  try {
+    const userInput = req.body.userInput
+    console.log(req.body)
+    const request = await generateAiRequest(userInput)
+
+    const data = await executeAiRequest(request)
+    console.log('data', data)
+
+    res.status(200).json({ request, data })
   } catch (error) {
     res.status(500).json({ error: error.message })
   }

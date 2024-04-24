@@ -7,6 +7,7 @@ import ErrorPage from './routes/ErrorPage.jsx'
 import Account from './routes/Account.jsx'
 import Data from './routes/Data.jsx'
 import Index from './routes/Index.jsx'
+import AskAi from './routes/AskAi.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: 'data',
         element: <Data />,
+      },
+      {
+        path: 'ask-ai',
+        element: <AskAi />,
       },
     ],
   },

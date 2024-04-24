@@ -12,6 +12,9 @@ export default function NavBar() {
         <a className={styles.index} href="/account">
           <p>Login</p>
         </a>
+        <a className={styles.index} href="/ask-ai">
+          <p>Ask ai</p>
+        </a>
       </div>
     </div>
   )
