@@ -132,7 +132,6 @@ app.post('/api/report-list/:gasType', async (req, res) => {
 app.get('/api/region-list', async (req, res) => {
   try {
     const regionList = await getRegionList()
-    console.log(regionList)
     res.json({ queryResult: regionList })
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -147,10 +146,8 @@ app.post('/api/creds', async (req, res) => {
 
     if (creds.length > 0) {
       res.json({ loggedIn: true })
-      console.log('doudou')
     } else {
       res.json({ loggedIn: false })
-      console.log('coucou')
     }
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -160,11 +157,9 @@ app.post('/api/creds', async (req, res) => {
 app.post('/api/ask-ai', async (req, res) => {
   try {
     const userInput = req.body.userInput
-    console.log(req.body)
     const request = await generateAiRequest(userInput)
 
     const data = await executeAiRequest(request)
-    console.log('data', data)
 
     res.status(200).json({ request, data })
   } catch (error) {

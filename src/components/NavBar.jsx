@@ -12,6 +12,7 @@ export default function NavBar() {
   const askAiLink = isLoggedIn ? '/ask-ai' : '#'
 
   const location = useLocation()
+
   return (
     <div className={styles.navbar}>
       <a href="/">

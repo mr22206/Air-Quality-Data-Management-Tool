@@ -14,19 +14,13 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(isUserLoggedIn)
 
   const login = () => {
-    console.log('logging in...')
     localStorage.setItem('isLoggedIn', JSON.stringify(true))
     setIsLoggedIn(true)
   }
 
   const logout = () => {
-    console.log('logging out...')
-
     localStorage.removeItem('isLoggedIn')
     setIsLoggedIn(false)
-
-    console.log(isLoggedIn)
-    console.log('done')
   }
 
   return (

@@ -72,7 +72,7 @@ export default function Account() {
 
             <div className="flex  rounded-md">
               <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px]">
-                <img className="w-5 h-5" src="/lock-icon.png"></img>
+                <img className="w-5 h-5" src="/lock-icon-login.png"></img>
               </label>
               <input
                 className="rounded-r-md w-[250px]  p-4 bg-white h-[56px]  text-black border border-custom-400 sm:w-full"

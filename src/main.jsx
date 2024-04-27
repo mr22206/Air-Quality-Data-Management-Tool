@@ -9,6 +9,7 @@ import Data from './routes/Data.jsx'
 import Index from './routes/Index.jsx'
 import AskAi from './routes/AskAi.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+
 const router = createBrowserRouter([
   {
     path: '/',

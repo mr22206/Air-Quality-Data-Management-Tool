@@ -157,9 +157,6 @@ export const generateAiRequest = async (prompt) => {
 }
 
 export const executeAiRequest = async (request) => {
-  console.log(request)
-
   const [rows] = await pool.query(request)
-
   return rows
 }

@@ -37,8 +37,8 @@ export default function Index() {
                 Connectez Vous
               </p>
               <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
-                Lorem ipsum dolor sit amet. Est nobis fugit ut cumque quaerat
-                qui tempore
+                Accédez rapidement à votre compte avec une authentification
+                sécurisée
               </p>
             </div>
           </div>
@@ -47,8 +47,8 @@ export default function Index() {
             <div>
               <p className="text-[20px] font-medium text-black">Interrogez</p>
               <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
-                Lorem ipsum dolor sit amet. Est nobis fugit ut cumque quaerat
-                qui tempore
+                Explorez les données en profondeur grâce à des requêtes simples
+                et rapides
               </p>
             </div>
           </div>
@@ -60,8 +60,8 @@ export default function Index() {
             <div className="ml-[-8px]">
               <p className="text-[20px] font-medium text-black">Demandez</p>
               <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
-                Lorem ipsum dolor sit amet. Est nobis fugit ut cumque quaerat
-                qui tempore
+                Utilisez le pouvoir de l&apos;intelligence artificielle pour
+                obtenir des résultats personnalisés en un instant
               </p>
             </div>
           </div>
