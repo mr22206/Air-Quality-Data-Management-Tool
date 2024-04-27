@@ -29,8 +29,6 @@ app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
 
-// Login page
-
 app.get('/api/agency', async (req, res) => {
   try {
     const agencies = await getAgency()
@@ -121,7 +119,7 @@ app.get('/api/prod-rate', async (req, res) => {
   }
 })
 
-app.get('/api/report-list/:gasType', async (req, res) => {
+app.post('/api/report-list/:gasType', async (req, res) => {
   try {
     const gasType = req.params.gasType
     const reportList = await getReportList(gasType)
@@ -134,6 +132,7 @@ app.get('/api/report-list/:gasType', async (req, res) => {
 app.get('/api/region-list', async (req, res) => {
   try {
     const regionList = await getRegionList()
+    console.log(regionList)
     res.json({ queryResult: regionList })
   } catch (error) {
     res.status(500).json({ error: error.message })

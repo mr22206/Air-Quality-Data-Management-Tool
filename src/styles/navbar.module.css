@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--custom-100);
 }
 /*TODO make it so that current router is shown on button*/
 .index {
@@ -26,20 +25,81 @@
 }
 
 .navbar img {
-  height: 65%;
+  height: 60px;
   width: auto;
   margin-left: 400px;
 }
 
 .navbar a {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--custom-300);
+  margin-left: 32px;
+}
+.navbar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 100;
+}
+
+.navbar p {
+  color: black;
+  font-weight: 400;
+}
+
+.navbar p:hover {
+  color: hsl(110, 53%, 51%);
 }
 
 .buttons {
   display: flex;
   padding-right: 400px;
+  align-items: center;
+  height: 40px;
+}
+
+.login {
+  display: block;
+  text-align: center;
+  height: 40px;
+  width: 128px;
+  position: relative;
+  background-color: #008037;
+  color: white;
+  border-radius: 4px;
+}
+.login p {
+  color: white;
+}
+
+.login:hover {
+  color: hsl(110, 53%, 51%);
+  text-decoration: underline;
+}
+
+.active {
+  color: #008037;
+}
+
+.disabled {
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  height: 100%;
+  position: relative;
+  color: rgb(153, 151, 151);
+}
+
+.disabled p {
+  color: rgb(153, 151, 151);
+}
+
+.disabled p:hover {
+  color: rgb(153, 151, 151);
 }

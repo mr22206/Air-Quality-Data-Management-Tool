@@ -67,7 +67,7 @@ export async function getAgent() {
 
 export async function getEmissionSum() {
   const [rows] = await pool.query(
-    "SELECT name_gas, SUM(ppm_value_dta) as sum_ppm_value_dta from region join data on region.id_rgn = data.id_rgn join gas on gas.id_gas = data.id_gas where name_rgn = 'ile de france' and date_dta > '2019-12-31' and date_dta < '2021-01-01' group by name_gas"
+    "SELECT name_gas, SUM(ppm_value_dta) as sum_ppm_value_dta from region join data on region.id_rgn = data.id_rgn join gas on gas.id_gas = data.id_gas where name_rgn = 'Île-de-France' and date_dta > '2019-12-31' and date_dta < '2021-01-01' group by name_gas"
   )
   return rows
 }

@@ -2,14 +2,14 @@ import React from 'react'
 
 const ObjectArrayRenderer = ({ data }) => {
   if (!data || data.length === 0) {
-    return <div>No data to display.</div>
+    return <div className="mt-[64px]">No data to display.</div>
   }
 
   // Extracting column names from the first object
   const columns = Object.keys(data[0])
 
   return (
-    <div className="overflow-x-auto">
+    <div className="">
       <table className="table-auto border-collapse border">
         <thead>
           <tr>
