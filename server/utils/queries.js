@@ -99,3 +99,12 @@ export async function getCreds(username, password) {
   )
   return rows
 }
+
+export async function executeClientRequest(request) {
+  try {
+    const [rows] = await pool.query(request)
+    return rows
+  } catch (err) {
+    throw new Error(err)
+  }
+}

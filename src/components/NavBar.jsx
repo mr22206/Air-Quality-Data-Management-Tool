@@ -22,6 +22,9 @@ export default function NavBar() {
         <a className={styles.index} href="/data">
           <p>Data</p>
         </a>
+        <a className={styles.index} href="/query">
+          <p>Query</p>
+        </a>
         <a
           className={isLoggedIn ? styles.index : styles.disabled}
           href={askAiLink}

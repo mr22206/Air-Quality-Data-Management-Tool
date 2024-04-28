@@ -9,6 +9,7 @@ import Data from './routes/Data.jsx'
 import Index from './routes/Index.jsx'
 import AskAi from './routes/AskAi.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import Query from './routes/Query.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: 'ask-ai',
         element: <AskAi />,
+      },
+      {
+        path: 'query',
+        element: <Query />,
       },
     ],
   },

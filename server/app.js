@@ -13,6 +13,7 @@ import {
   getReportList,
   getRegionList,
   getCreds,
+  executeClientRequest,
 } from './utils/queries.js'
 import cors from 'cors'
 import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
@@ -162,6 +163,17 @@ app.post('/api/ask-ai', async (req, res) => {
     const data = await executeAiRequest(request)
 
     res.status(200).json({ request, data })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+app.post('/api/request', async (req, res) => {
+  try {
+    const userRequest = req.body.userRequest
+    const data = await executeClientRequest(userRequest)
+    console.log('hello')
+    res.status(200).json({ data })
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
