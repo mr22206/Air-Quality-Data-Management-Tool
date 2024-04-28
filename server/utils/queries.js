@@ -81,7 +81,8 @@ export async function getProdRate() {
 
 export async function getReportList(gasType) {
   const [rows] = await pool.query(
-    `SELECT report.* FROM report JOIN reports ON report.id_rep = reports.id_rep JOIN gas ON reports.id_gas = gas.id_gas WHERE name_gas = '${gasType}'`
+    `CALL GetReportsByGasName(${gasType})`
+
   )
   return rows
 }

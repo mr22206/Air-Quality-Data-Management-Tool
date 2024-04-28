@@ -121,13 +121,19 @@ app.get('/api/prod-rate', async (req, res) => {
 
 app.post('/api/report-list/:gasType', async (req, res) => {
   try {
-    const gasType = req.params.gasType
-    const reportList = await getReportList(gasType)
-    res.json({ queryResult: reportList })
+    const gasTypeParam = req.params['gasType']; // Accéder au paramètre sans les deux points
+    const gasType = '"' + gasTypeParam.substring(1) + '"';
+    // console.log(gasType);
+    const reportList = await getReportList(gasType);
+    console.log(gasType)
+    // console.log('Résultat de la requête :', reportList); // Affichage dans la console
+    res.json({ queryResult: reportList });
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message });
   }
-})
+});
+
+
 
 app.get('/api/region-list', async (req, res) => {
   try {
