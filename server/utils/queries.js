@@ -97,6 +97,7 @@ export async function getCreds(username, password) {
   const [rows] = await pool.query(
     `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
   )
+
   return rows
 }
 

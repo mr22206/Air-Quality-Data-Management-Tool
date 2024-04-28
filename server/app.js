@@ -17,6 +17,8 @@ import {
 } from './utils/queries.js'
 import cors from 'cors'
 import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
+import authenticateToken from './utils/middleware.js'
+import jwt from 'jsonwebtoken'
 
 const app = express()
 const corsOptions = {
@@ -30,7 +32,7 @@ app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
 
-app.get('/api/agency', async (req, res) => {
+app.get('/api/agency', authenticateToken, async (req, res) => {
   try {
     const agencies = await getAgency()
     res.json({ queryResult: agencies })
@@ -39,7 +41,7 @@ app.get('/api/agency', async (req, res) => {
   }
 })
 
-app.get('/api/user/bordeaux', async (req, res) => {
+app.get('/api/user/bordeaux', authenticateToken, async (req, res) => {
   try {
     const users = await getUser()
     res.json({ queryResult: users })
@@ -48,7 +50,7 @@ app.get('/api/user/bordeaux', async (req, res) => {
   }
 })
 
-app.get('/api/sensor', async (req, res) => {
+app.get('/api/sensor', authenticateToken, async (req, res) => {
   try {
     const sensors = await getSensor()
     res.json({ queryResult: sensors })
@@ -144,14 +146,22 @@ app.post('/api/creds', async (req, res) => {
 
   try {
     const creds = await getCreds(username, password)
+    const user = creds[0]
+    console.log(user)
 
-    if (creds.length > 0) {
-      res.json({ loggedIn: true })
-    } else {
-      res.json({ loggedIn: false })
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' }) //change res
     }
+    const token = jwt.sign(
+      { userName: user.username, userPrivileges: user.privileges },
+      'secretKey',
+      {
+        expiresIn: '1h',
+      }
+    )
+    return res.status(200).json({ message: 'Login successful', token })
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    return res.status(500).json({ error: error.message })
   }
 })
 

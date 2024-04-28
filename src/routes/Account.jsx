@@ -26,8 +26,8 @@ export default function Account() {
       .post('http://localhost:3000/api/creds', { username, password })
       .then((response) => {
         setIsLoggingIn(false)
-        if (response.data.loggedIn) {
-          login()
+        if (response.data.token) {
+          login(response.data.token)
           toast('Login successful 👌', { type: 'success' })
           navigate('/ask-ai')
         } else {

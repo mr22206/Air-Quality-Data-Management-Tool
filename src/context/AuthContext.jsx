@@ -4,22 +4,16 @@ import PropTypes from 'prop-types'
 //TODO: localStorage for logged in bcs useContext state doesnt persist after refresh, is it even needed?
 const AuthContext = createContext()
 
-const checkUserState = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn')
-  return isLoggedIn ? true : false
-}
-
 export const AuthProvider = ({ children }) => {
-  const isUserLoggedIn = checkUserState()
-  const [isLoggedIn, setIsLoggedIn] = useState(isUserLoggedIn)
-
-  const login = () => {
-    localStorage.setItem('isLoggedIn', JSON.stringify(true))
+  const token = localStorage.getItem('authToken')
+  const [isLoggedIn, setIsLoggedIn] = useState(token)
+  const login = (token) => {
+    localStorage.setItem('authToken', JSON.stringify(token))
     setIsLoggedIn(true)
   }
 
   const logout = () => {
-    localStorage.removeItem('isLoggedIn')
+    localStorage.removeItem('authToken')
     setIsLoggedIn(false)
   }
 

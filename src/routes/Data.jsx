@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import ObjectArrayRenderer from '../components/ObjectArrayRenderer'
+import { useAuth } from '../context/AuthContext'
 
 export default function Data() {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [selectedInput, setSelectedInput] = useState(null)
+  const { isLoggedIn: token } = useAuth()
 
   const handleChange = async (event) => {
     const selectedValue = event.target.value
@@ -17,7 +19,10 @@ export default function Data() {
     try {
       // Show pending toast notification
       const promise = fetch(`http://localhost:3000/api/${selectedValue}`, {
-        headers: { accept: 'application/json' },
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
         method: 'GET',
       })
         .then((response) => {
