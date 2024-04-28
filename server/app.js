@@ -123,10 +123,11 @@ app.post('/api/report-list/:gasType', async (req, res) => {
   try {
     const gasTypeParam = req.params['gasType']; // Accéder au paramètre sans les deux points
     const gasType = '"' + gasTypeParam.substring(1) + '"';
-    // console.log(gasType);
     const reportList = await getReportList(gasType);
-    console.log(gasType)
-    // console.log('Résultat de la requête :', reportList); // Affichage dans la console
+    // console.log(gasType)
+    console.log(reportList)
+    // console.log(JSON.stringify(reportList, null, 2)); // Affichage dans la console
+
     res.json({ queryResult: reportList });
   } catch (error) {
     res.status(500).json({ error: error.message });
