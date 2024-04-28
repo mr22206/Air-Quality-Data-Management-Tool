@@ -65,6 +65,7 @@ export default function Data() {
         })
         .then((result) => {
           setData(result)
+
           // Show success toast notification
         })
 
