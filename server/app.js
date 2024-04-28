@@ -116,6 +116,7 @@ app.get('/api/emission-sum', async (req, res) => {
 app.get('/api/prod-rate', async (req, res) => {
   try {
     const prodRate = await getProdRate()
+
     res.json({ queryResult: prodRate })
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -124,9 +125,14 @@ app.get('/api/prod-rate', async (req, res) => {
 
 app.post('/api/report-list/:gasType', async (req, res) => {
   try {
-    const gasType = req.params.gasType
+    const gasTypeParam = req.params['gasType'] // Accéder au paramètre sans les deux points
+    const gasType = '"' + gasTypeParam.substring(1) + '"'
     const reportList = await getReportList(gasType)
-    res.json({ queryResult: reportList })
+    // console.log(gasType)
+
+    // console.log(JSON.stringify(reportList, null, 2)); // Affichage dans la console
+
+    res.json({ queryResult: reportList[0] })
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
