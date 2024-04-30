@@ -80,10 +80,7 @@ export async function getProdRate() {
 }
 
 export async function getReportList(gasType) {
-  const [rows] = await pool.query(
-    `CALL GetReportsByGasName(${gasType})`
-
-  )
+  const [rows] = await pool.query(`CALL GetReportsByGasName(${gasType})`)
   return rows
 }
 
@@ -102,7 +99,7 @@ export async function getCreds(username, password) {
   return rows
 }
 
-export async function executeClientRequest(request) {
+export async function executeClientRequest(request, pool) {
   try {
     const [rows] = await pool.query(request)
     return rows
