@@ -18,39 +18,39 @@ export default function NavBar() {
         <a href="/" className="flex justify-center align-center ml-[32px]">
           <img src="/giec.png" className="h-[60px] w-auto" />
         </a>
-        <div className="flex align-center h-[40px]">
+        <div className="flex justify-center items-center h-[40px]">
           <a
-            className="block text-center py-[14px] px-[20px] h-[100%] relative hover:text-hsl-110-53-51 hover:underline"
+            className="flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:text-green-400 hover:underline b"
             href="/data"
           >
-            <p className="font font-semibold">Data</p>
+            <p className="font-normal">Data</p>
           </a>
           <a
-            className="block text-center py-[14px] px-[20px] h-[100%] relative hover:text-hsl-110-53-51 hover:underline"
+            className="flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:text-green-400 hover:underline  ml-[32px]"
             href="/query"
           >
-            <p>Query</p>
+            <p className="font-normal">Query</p>
           </a>
           <a
             className={
               isLoggedIn
-                ? 'block text-center py-[14px] px-[20px] h-[100%] relative hover:text-hsl-110-53-51 hover:underline'
-                : 'block text-center py-[14px] px-[20px] h-[100%] relative text-gray-600'
+                ? 'flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:underline  ml-[32px]'
+                : 'flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative text-gray-400  ml-[32px]'
             }
             href={askAiLink}
           >
-            <p>Ask ai</p>
+            <p className="font-normal">Ask ai</p>
           </a>
           {!isLoggedIn ? (
             <a
-              className="block text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[64px] hover:text-hsl-110-53-51 hover:underline"
+              className="flex justify-center items-center text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[64px] hover:text-green-400 hover:underline ml-[32px]"
               href="/account"
             >
-              <p className="text-white">Login</p>
+              <p>Login</p>
             </a>
           ) : (
             <button
-              className="block text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[64px] hover:text-hsl-110-53-51 hover:underline"
+              className=" text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[64px] hover:text-green-400 hover:underline ml-[32px] "
               onClick={() => logout()}
             >
               <p className="text-white">Logout</p>
