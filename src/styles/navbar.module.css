@@ -6,13 +6,12 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 /*TODO make it so that current router is shown on button*/
 .index {
   display: block;
-
   text-align: center;
   padding: 14px 20px;
   height: 100%;
@@ -27,7 +26,6 @@
 .navbar img {
   height: 60px;
   width: auto;
-  margin-left: 400px;
 }
 
 .navbar a {
@@ -59,7 +57,7 @@
 
 .buttons {
   display: flex;
-  padding-right: 400px;
+
   align-items: center;
   height: 40px;
 }
@@ -73,6 +71,7 @@
   background-color: #008037;
   color: white;
   border-radius: 4px;
+  margin-right: 64px;
 }
 .login p {
   color: white;

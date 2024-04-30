@@ -15,31 +15,33 @@ export default function NavBar() {
 
   return (
     <div className={styles.navbar}>
-      <a href="/">
-        <img src="/giec.png" />
-      </a>
-      <div className={styles.buttons}>
-        <a className={styles.index} href="/data">
-          <p>Data</p>
+      <div className="flex justify-between items-center w-[1152px]">
+        <a href="/">
+          <img src="/giec.png" />
         </a>
-        <a className={styles.index} href="/query">
-          <p>Query</p>
-        </a>
-        <a
-          className={isLoggedIn ? styles.index : styles.disabled}
-          href={askAiLink}
-        >
-          <p>Ask ai</p>
-        </a>
-        {!isLoggedIn ? (
-          <a className={styles.login} href="/account">
-            <p>Login</p>
+        <div className={styles.buttons}>
+          <a className={styles.index} href="/data">
+            <p>Data</p>
           </a>
-        ) : (
-          <button className={styles.login} onClick={() => logout()}>
-            <p>Logout</p>
-          </button>
-        )}
+          <a className={styles.index} href="/query">
+            <p>Query</p>
+          </a>
+          <a
+            className={isLoggedIn ? styles.index : styles.disabled}
+            href={askAiLink}
+          >
+            <p>Ask ai</p>
+          </a>
+          {!isLoggedIn ? (
+            <a className={styles.login} href="/account">
+              <p>Login</p>
+            </a>
+          ) : (
+            <button className={styles.login} onClick={() => logout()}>
+              <p>Logout</p>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

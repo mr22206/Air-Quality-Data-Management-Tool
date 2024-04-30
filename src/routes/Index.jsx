@@ -1,10 +1,10 @@
 export default function Index() {
   return (
     <>
-      <div className="w-[100%] h-[100vh] text-center  text-3xl font-bold text-custom-300 bg-[#ededed]">
+      <div className="w-[100%] h-[100vh] text-center  text-3xl font-bold text-custom-300 bg-white xl:bg-[#ededed]">
         <img
           src="radial-gradient.png"
-          className="w-[full] h-[600px] top-[65px] absolute left-[50%] translate-x-[-50%]"
+          className="w-[full] h-[600px] top-[65px] absolute left-[50%] translate-x-[-50%] hidden xl:block"
         />
         <img
           src="air-pollution.png"
@@ -12,9 +12,10 @@ export default function Index() {
         />
         <img
           src="linear-gradient.png"
-          className="w-[100%] h-[118px] absolute top-[700px]"
+          className="w-[100%] h-[118px] absolute top-[700px] hidden xl:block"
         />
-        <img src="pollution.jpg" className="w-[100%]" />
+        <img src="pollution.jpg" className="w-[100%] hidden xl:block" />
+        visible
         <h1 className="font-bold text-[48px] absolute  left-[50%] translate-x-[-50%] top-[240px] text-black w-[700px] leading-tight">
           CENTRALISATION NATIONALE DES DONNEES SUR LES GAZ
         </h1>
@@ -23,7 +24,7 @@ export default function Index() {
         </h2>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 left-[50%] translate-x-[-50%] bg-white w-[940px] h-[400px] px-[64px] pt-[48px] rounded-md ">
+      <div className="fixed inset-x-0 bottom-0 z-50 left-[50%] translate-x-[-50%] bg-white h-[400px] px-[64px] pt-[48px] rounded-md flex flex-col items-center border border-black w-[500px] xl:w-[940px] xl:items-start">
         <p className="text-[#008037] font-medium text-[16px]">COMMENCEZ ICI</p>
         <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px]">
           BIENVENUE SUR RWZR

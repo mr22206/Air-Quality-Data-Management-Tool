@@ -59,7 +59,7 @@ app.get('/api/sensor', authenticateToken, async (req, res) => {
   }
 })
 
-app.get('/api/report', async (req, res) => {
+app.get('/api/report', authenticateToken, async (req, res) => {
   try {
     const reports = await getReport()
     res.json({ queryResult: reports })
@@ -68,7 +68,7 @@ app.get('/api/report', async (req, res) => {
   }
 })
 
-app.get('/api/gas-emissions', async (req, res) => {
+app.get('/api/gas-emissions', authenticateToken, async (req, res) => {
   try {
     const gasEmissions = await getGasEmissions()
     res.json({ queryResult: gasEmissions })
@@ -77,7 +77,7 @@ app.get('/api/gas-emissions', async (req, res) => {
   }
 })
 
-app.get('/api/most-polluting', async (req, res) => {
+app.get('/api/most-polluting', authenticateToken, async (req, res) => {
   try {
     const mostPolluting = await getMostPolluting()
     res.json({ queryResult: mostPolluting })
@@ -86,7 +86,7 @@ app.get('/api/most-polluting', async (req, res) => {
   }
 })
 
-app.get('/api/sort-report', async (req, res) => {
+app.get('/api/sort-report', authenticateToken, async (req, res) => {
   try {
     const sortedReports = await sortReport()
     res.json({ queryResult: sortedReports })
@@ -95,7 +95,7 @@ app.get('/api/sort-report', async (req, res) => {
   }
 })
 
-app.get('/api/agent', async (req, res) => {
+app.get('/api/agent', authenticateToken, async (req, res) => {
   try {
     const agents = await getAgent()
     res.json({ queryResult: agents })
@@ -104,7 +104,7 @@ app.get('/api/agent', async (req, res) => {
   }
 })
 
-app.get('/api/emission-sum', async (req, res) => {
+app.get('/api/emission-sum', authenticateToken, async (req, res) => {
   try {
     const emissionSum = await getEmissionSum()
     res.json({ queryResult: emissionSum })
@@ -113,7 +113,7 @@ app.get('/api/emission-sum', async (req, res) => {
   }
 })
 
-app.get('/api/prod-rate', async (req, res) => {
+app.get('/api/prod-rate', authenticateToken, async (req, res) => {
   try {
     const prodRate = await getProdRate()
 
@@ -123,7 +123,7 @@ app.get('/api/prod-rate', async (req, res) => {
   }
 })
 
-app.post('/api/report-list/:gasType', async (req, res) => {
+app.post('/api/report-list/:gasType', authenticateToken, async (req, res) => {
   try {
     const gasTypeParam = req.params['gasType'] // Accéder au paramètre sans les deux points
     const gasType = '"' + gasTypeParam.substring(1) + '"'
@@ -138,7 +138,7 @@ app.post('/api/report-list/:gasType', async (req, res) => {
   }
 })
 
-app.get('/api/region-list', async (req, res) => {
+app.get('/api/region-list', authenticateToken, async (req, res) => {
   try {
     const regionList = await getRegionList()
     res.json({ queryResult: regionList })
@@ -147,7 +147,7 @@ app.get('/api/region-list', async (req, res) => {
   }
 })
 
-app.post('/api/creds', async (req, res) => {
+app.post('/api/creds', authenticateToken, async (req, res) => {
   const { username, password } = req.body
 
   try {
@@ -171,7 +171,7 @@ app.post('/api/creds', async (req, res) => {
   }
 })
 
-app.post('/api/ask-ai', async (req, res) => {
+app.post('/api/ask-ai', authenticateToken, async (req, res) => {
   try {
     const userInput = req.body.userInput
     const request = await generateAiRequest(userInput)
@@ -184,7 +184,7 @@ app.post('/api/ask-ai', async (req, res) => {
   }
 })
 
-app.post('/api/request', async (req, res) => {
+app.post('/api/request', authenticateToken, async (req, res) => {
   try {
     const userRequest = req.body.userRequest
     const data = await executeClientRequest(userRequest)

@@ -16,8 +16,8 @@ const authenticateToken = (req, res, next) => {
     //TODO: generate secret
     if (err) {
       console.log(err)
-      // If token verification fails, return unauthorized
-      return res.sendStatus(403)
+
+      //return res.sendStatus(403) //TODO: instead of this send back pool
     }
     // If token is valid, attach the user object to the request
     req.user = user
