@@ -1,21 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import ObjectArrayRenderer from '../components/ObjectArrayRenderer'
-import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
 
 export default function Query() {
   const [inputValue, setInputValue] = useState('')
   const [data, setData] = useState('')
-
-  const { isLoggedIn } = useAuth()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/')
-    }
-  })
 
   const handleChange = (event) => {
     setInputValue(event.target.value)
@@ -32,9 +21,11 @@ export default function Query() {
         method: 'POST',
         body: JSON.stringify({ userRequest: inputValue }),
       })
-      const { data } = await response.json()
+      const { data, error } = await response.json()
       setData(data)
-
+      if (error) {
+        return toast(error + '🤯', { type: 'error' })
+      }
       if (data) {
         return toast('Data retrieved successfully', { type: 'success' })
       }

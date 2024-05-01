@@ -15,7 +15,7 @@ export default function Account() {
   } = useForm()
   const [isLoggingIn, setIsLoggingIn] = useState(false)
 
-  const { login } = useAuth()
+  const { login, token } = useAuth()
 
   const onSubmit = (data) => {
     const { username, password } = data

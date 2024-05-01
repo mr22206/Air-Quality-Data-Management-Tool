@@ -1,11 +1,11 @@
 import { openai } from './openai.js'
-import { pool } from './queries.js'
 
 export const generateAiRequest = async (prompt) => {
   const results = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     messages: [
       {
+        //TODO: default insert id is 1, so maybe get the prompt that has the autoincr so that the bot knows it doesnt need to specify id, will cause errors in other case
         role: 'system',
         content: ` You are an expert in SQL, I ask you for requests on a database constructed as such and you reply ONLY with the request, I insist on the fact that you return only the request.
               CREATE TABLE Report(
@@ -156,7 +156,11 @@ export const generateAiRequest = async (prompt) => {
   return results.choices[0].message.content
 }
 
-export const executeAiRequest = async (request) => {
-  const [rows] = await pool.query(request)
-  return rows
+export const executeAiRequest = async (request, pool) => {
+  try {
+    const [rows] = await pool.query(request)
+    return rows
+  } catch (err) {
+    return 'unauthorized'
+  }
 }

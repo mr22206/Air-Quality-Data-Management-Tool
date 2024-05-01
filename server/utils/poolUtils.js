@@ -3,8 +3,8 @@ import mysql from 'mysql2'
 const userPool = mysql
   .createPool({
     host: 'localhost',
-    user: 'regular_user',
-    password: 'regular_password',
+    user: 'user',
+    password: 'user',
     database: 'datax',
   })
   .promise()
@@ -12,8 +12,8 @@ const userPool = mysql
 const adminPool = mysql
   .createPool({
     host: 'localhost',
-    user: 'admin_user',
-    password: 'admin_password',
+    user: 'admin',
+    password: 'admin',
     database: 'datax',
   })
   .promise()
@@ -21,8 +21,8 @@ const adminPool = mysql
 const anyPool = mysql
   .createPool({
     host: 'localhost',
-    user: 'admin_user',
-    password: 'admin_password',
+    user: 'any',
+    password: 'any',
     database: 'datax',
   })
   .promise()
@@ -36,6 +36,7 @@ export const getPool = (user) => {
     return anyPool
   }
   if (user.permissions === 'user') {
+    console.log('Pooltype:')
     return userPool
   } else if (user.permissions === 'admin') {
     return adminPool

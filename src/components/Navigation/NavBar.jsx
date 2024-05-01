@@ -8,8 +8,6 @@ export default function NavBar() {
 
   const { isLoggedIn, logout } = useAuth()
 
-  const askAiLink = isLoggedIn ? '/ask-ai' : '#'
-
   return (
     <div className="bg-white w-[100%] h-[65px] fixed top-0 left-0  justify-center align-center z-50 flex ">
       <div className="flex justify-between items-center w-[1152px]">
@@ -18,7 +16,7 @@ export default function NavBar() {
         </a>
         <NavigationMenu
           isLoggedIn={isLoggedIn}
-          askAiLink={askAiLink}
+          askAiLink={'/ask-ai'}
           logout={logout}
         />
         <div className=" justify-center items-center h-[40px] hidden md:flex">
@@ -36,11 +34,9 @@ export default function NavBar() {
           </a>
           <a
             className={
-              isLoggedIn
-                ? 'flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:underline  ml-[32px]'
-                : 'flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative text-gray-400  ml-[32px]'
+              'flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:underline  ml-[32px]'
             }
-            href={askAiLink}
+            href={'/ask-ai'}
           >
             <p className="font-normal">Ask ai</p>
           </a>

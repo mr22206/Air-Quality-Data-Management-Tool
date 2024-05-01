@@ -1,27 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import ObjectArrayRenderer from '../components/ObjectArrayRenderer'
 import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
 
 export default function AskAi() {
   const [inputValue, setInputValue] = useState('')
   const [data, setData] = useState('')
   const [request, setRequest] = useState('')
-
-  const { isLoggedIn } = useAuth()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/')
-    }
-  })
+  const { token } = useAuth()
 
   const handleChange = (event) => {
     setInputValue(event.target.value)
     setData('')
     setRequest('')
+    console.log(token, 'token')
   }
 
   const handleSubmit = async (event) => {
@@ -29,12 +21,27 @@ export default function AskAi() {
     try {
       if (!inputValue)
         return toast('Please type your request', { type: 'warning' })
+
+      const headers = {
+        'Content-Type': 'application/json',
+      }
+
+      // Only include Authorization header if token is defined
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`
+      }
+
       const response = await fetch(`http://localhost:3000/api/ask-ai`, {
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         method: 'POST',
         body: JSON.stringify({ userInput: inputValue }),
       })
-      const { data, request } = await response.json()
+      const { request, data, error } = await response.json()
+
+      if (error) {
+        return toast(error + '🤯', { type: 'error' })
+      }
+
       setData(data)
       setRequest(request)
       if (data && request) {
