@@ -17,7 +17,7 @@ const authenticateToken = (req, res, next) => {
     if (err) {
       console.log(err)
 
-      //return res.sendStatus(403) //TODO: instead of this send back pool
+      return res.sendStatus(403) //TODO: instead of this send back pool
     }
     // If token is valid, attach the user object to the request
     req.user = user

@@ -8,7 +8,7 @@ export default function Index() {
         />
         <img
           src="air-pollution.png"
-          className="w-[94px] h-[94px] absolute top-[122px] left-[50%] translate-x-[-50%]"
+          className="w-[94px] h-[94px] absolute top-[122px] left-[50%] translate-x-[-50%] hidden xl:block"
         />
         <img
           src="linear-gradient.png"
@@ -16,18 +16,24 @@ export default function Index() {
         />
         <img src="pollution.jpg" className="w-[100%] hidden xl:block" />
         visible
-        <h1 className="font-bold text-[48px] absolute  left-[50%] translate-x-[-50%] top-[240px] text-black w-[700px] leading-tight">
+        <h1 className="font-bold text-[48px] absolute  left-[50%] translate-x-[-50%] top-[140px] xl:top-[240px] text-black w-[500px] md:w-[700px] leading-tight hidden sm:block">
           CENTRALISATION NATIONALE DES DONNEES SUR LES GAZ
         </h1>
-        <h2 className=" font-semibold text-[32px] text-[#343434] absolute left-[50%] translate-x-[-50%] top-[365px] w-[575px]">
+        <h1 className="font-bold text-[48px] absolute  left-[50%] translate-x-[-50%] top-[140px] xl:top-[240px] text-black w-[300px] md:w-[700px] leading-tight block sm:hidden ">
+          CNDG
+        </h1>
+        <h2 className=" font-semibold text-[32px] text-[#343434] absolute left-[50%] translate-x-[-50%] top-[265px] xl:top-[365px] w-[575px] hidden md:block">
           Données centralisées, accès instantané et visualisation rapide
         </h2>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 left-[50%] translate-x-[-50%] bg-white h-[400px] px-[64px] pt-[48px] rounded-md flex flex-col items-center border border-black w-[500px] xl:w-[940px] xl:items-start">
+      <div className="fixed inset-x-0 bottom-0 z-30 left-[50%] translate-x-[-50%] bg-white h-[450px] sm:h-[400px] px-[64px] pt-[48px] rounded-md flex flex-col items-center md:border md:border-black w-screen xl:w-[940px] xl:items-start md:w-[500px]">
         <p className="text-[#008037] font-medium text-[16px]">COMMENCEZ ICI</p>
-        <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px]">
+        <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px] hidden sm:block">
           BIENVENUE SUR RWZR
+        </h3>
+        <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px] block sm:hidden">
+          BIENVENUE
         </h3>
         <div className="w-[61px] h-[6px] bg-[#008037]"></div>
         <div className="pt-[32px] pl-[16px]">
@@ -37,7 +43,7 @@ export default function Index() {
               <p className="text-[20px] font-medium text-black">
                 Connectez Vous
               </p>
-              <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
+              <p className="text-[12px] font-semibold text-[#8D8D8D] w-[200px] sm:w-[250px]">
                 Accédez rapidement à votre compte avec une authentification
                 sécurisée
               </p>
@@ -47,7 +53,7 @@ export default function Index() {
             <img src="db-icon.png" className="mr-[32px] w-[40px] h-[46px]" />
             <div>
               <p className="text-[20px] font-medium text-black">Interrogez</p>
-              <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
+              <p className="text-[12px] font-semibold text-[#8D8D8D] w-[200px] sm:w-[250px]">
                 Explorez les données en profondeur grâce à des requêtes simples
                 et rapides
               </p>
@@ -60,7 +66,7 @@ export default function Index() {
             />
             <div className="ml-[-8px]">
               <p className="text-[20px] font-medium text-black">Demandez</p>
-              <p className="text-[12px] font-semibold text-[#8D8D8D] w-[250px]">
+              <p className="text-[12px] font-semibold text-[#8D8D8D]  w-[200px] sm:w-[250px]">
                 Utilisez le pouvoir de l&apos;intelligence artificielle pour
                 obtenir des résultats personnalisés en un instant
               </p>

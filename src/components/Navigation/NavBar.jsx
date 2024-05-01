@@ -1,6 +1,6 @@
 //import { useLocation } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { useLocation } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+import NavigationMenu from './NavigationMenu'
 
 export default function NavBar() {
   //const location = useLocation()
@@ -10,15 +10,18 @@ export default function NavBar() {
 
   const askAiLink = isLoggedIn ? '/ask-ai' : '#'
 
-  const location = useLocation()
-
   return (
-    <div className="bg-white w-[100%] h-[65px] fixed top-0 left-0 flex justify-center align-center z-50">
+    <div className="bg-white w-[100%] h-[65px] fixed top-0 left-0  justify-center align-center z-50 flex ">
       <div className="flex justify-between items-center w-[1152px]">
-        <a href="/" className="flex justify-center align-center ml-[32px]">
+        <a href="/" className="flex justify-center align-center ml-[16px]">
           <img src="/giec.png" className="h-[60px] w-auto" />
         </a>
-        <div className="flex justify-center items-center h-[40px]">
+        <NavigationMenu
+          isLoggedIn={isLoggedIn}
+          askAiLink={askAiLink}
+          logout={logout}
+        />
+        <div className=" justify-center items-center h-[40px] hidden md:flex">
           <a
             className="flex justify-center items-center text-center py-[14px] px-[20px] h-[100%] relative hover:text-green-400 hover:underline b"
             href="/data"
@@ -43,7 +46,7 @@ export default function NavBar() {
           </a>
           {!isLoggedIn ? (
             <a
-              className="flex justify-center items-center text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[64px] hover:text-green-400 hover:underline ml-[32px]"
+              className="flex justify-center items-center text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px] mr-[32px] hover:text-green-400 hover:underline ml-[32px]"
               href="/account"
             >
               <p>Login</p>
