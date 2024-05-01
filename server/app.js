@@ -22,7 +22,7 @@ import jwt from 'jsonwebtoken'
 
 const app = express()
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'https://rwrz.ddns.net/'],
 }
 
 app.use(express.json())

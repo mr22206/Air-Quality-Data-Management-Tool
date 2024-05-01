@@ -89,8 +89,11 @@ export default function Data() {
   return (
     <div className="flex flex-col items-center mt-[-330px]  ">
       <div className="relative">
-        <h1 className="text-[48px] text-black font-bold relative z-50">
+        <h1 className="text-[48px] text-black font-bold relative z-30 hidden xl:block">
           Interrogation de la Base de Données
+        </h1>
+        <h1 className="text-[48px] text-black font-bold relative z-30 block xl:hidden mt-[100px]">
+          Interrogation
         </h1>
         <div className="w-[297px] h-[10px] bg-[#3FFE91] absolute bottom-[10px] left-[3px] z-10"></div>
       </div>
@@ -99,7 +102,7 @@ export default function Data() {
       </h2>
       <select
         onChange={handleChange}
-        className="mb-4 w-[780px] bg-[#008037] flex justify-center rounded-md text-white text-center font-light"
+        className="mb-4  w-[300px] sm:w-[400px] xl:w-[780px] bg-[#008037] flex justify-center rounded-md text-white text-center font-light"
       >
         <option value="" className="bg-white text-black">
           Select an option
