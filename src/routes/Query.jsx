@@ -39,8 +39,8 @@ export default function Query() {
   return (
     //TODO: add H2 here and to ai maybe?
     <div className="flex flex-col items-center justify-center mt-[-300px] ">
-      <div className="relative  xl:mr-[275px]">
-        <h1 className="text-[48px] text-black font-bold relative z-30 w-[700px]  hidden xl:block">
+      <div className="relative xl:mr-[275px]">
+        <h1 className="text-[48px] text-black font-bold relative z-30 w-[700px] hidden xl:block">
           Executer une requête sur la base de données
         </h1>
         <h1 className="text-[48px] text-black font-bold relative z-30 block xl:hidden mt-[150px] sm:mt-[100px]">

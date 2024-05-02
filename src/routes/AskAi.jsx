@@ -55,11 +55,14 @@ export default function AskAi() {
 
   return (
     <div className="flex flex-col items-center justify-center mt-[-300px] ">
-      <div className="relative mr-[275px]">
-        <h1 className="text-[48px] text-black font-bold relative z-50 w-[700px]  ">
+      <div className="relative xl:mr-[275px]">
+        <h1 className="text-[48px] text-black font-bold relative z-30 w-[700px]  hidden xl:block">
           Bonjour, quel type de données voulez vous récupérer?
         </h1>
-        <div className="w-[180px] h-[10px] bg-[#3FFE91] absolute bottom-[82px] left-[4px] z-10"></div>
+        <h1 className="text-[48px] text-black font-bold relative z-30 block xl:hidden mt-[150px] sm:mt-[100px] ">
+          Bonjour
+        </h1>
+        <div className="w-[180px] h-[10px] bg-[#3FFE91] absolute bottom-[10px]  xl:bottom-[82px] left-[4px]  z-10"></div>
       </div>
 
       <form
@@ -67,7 +70,7 @@ export default function AskAi() {
         onSubmit={handleSubmit}
       >
         <textarea
-          className="w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] "
+          className="w-[300px] sm:w-[600px] xl:w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] "
           placeholder="Réponse..."
           value={inputValue}
           onChange={handleChange}
