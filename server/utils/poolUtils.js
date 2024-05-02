@@ -41,5 +41,4 @@ export const getPool = (user) => {
   } else if (user.permissions === 'admin') {
     return adminPool
   }
-  return userPool
 }
