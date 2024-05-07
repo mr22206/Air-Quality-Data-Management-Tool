@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ObjectArrayRenderer = ({ data }) => {
-  if (!data || data.length === 0) {
+  if (!Array.isArray(data) || data.length === 0) {
     return <div className="mt-[64px]">No data to display.</div>
   }
 

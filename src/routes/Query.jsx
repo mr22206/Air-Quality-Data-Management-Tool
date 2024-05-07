@@ -1,21 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import ObjectArrayRenderer from '../components/ObjectArrayRenderer'
-import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
 
 export default function Query() {
   const [inputValue, setInputValue] = useState('')
   const [data, setData] = useState('')
-
-  const { isLoggedIn } = useAuth()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/')
-    }
-  })
 
   const handleChange = (event) => {
     setInputValue(event.target.value)
@@ -32,9 +21,11 @@ export default function Query() {
         method: 'POST',
         body: JSON.stringify({ userRequest: inputValue }),
       })
-      const { data } = await response.json()
+      const { data, error } = await response.json()
       setData(data)
-
+      if (error) {
+        return toast(error + '🤯', { type: 'error' })
+      }
       if (data) {
         return toast('Data retrieved successfully', { type: 'success' })
       }
@@ -46,12 +37,16 @@ export default function Query() {
   //TODO: fix second submit when input not changed saying data received successfully
 
   return (
+    //TODO: add H2 here and to ai maybe?
     <div className="flex flex-col items-center justify-center mt-[-300px] ">
-      <div className="relative mr-[275px]">
-        <h1 className="text-[48px] text-black font-bold relative z-50 w-[700px]  ">
+      <div className="relative xl:mr-[275px]">
+        <h1 className="text-[48px] text-black font-bold relative z-30 w-[700px] hidden xl:block">
           Executer une requête sur la base de données
         </h1>
-        <div className="w-[180px] h-[10px] bg-[#3FFE91] absolute bottom-[82px] left-[4px] z-10"></div>
+        <h1 className="text-[48px] text-black font-bold relative z-30 block xl:hidden mt-[150px] sm:mt-[100px]">
+          Requête
+        </h1>
+        <div className="w-[180px] h-[10px] bg-[#3FFE91] absolute bottom-[10px]  xl:bottom-[82px] left-[4px] z-10"></div>
       </div>
 
       <form
@@ -59,7 +54,7 @@ export default function Query() {
         onSubmit={handleSubmit}
       >
         <textarea
-          className="w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] "
+          className="w-[300px] sm:w-[600px] xl:w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] "
           placeholder="Requête..."
           value={inputValue}
           onChange={handleChange}
