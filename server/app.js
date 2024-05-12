@@ -12,12 +12,11 @@ const corsOptions = {
 
 app.use(express.json())
 app.use(cors(corsOptions))
-app.use(express.static('public'));
+app.use(express.static('./'));
 
 
-// app.get('/', (req, res) => {
-//   res.send('Welcome to the homepage!')
-// })
+app.get('./index.html', (req, res) => {
+})
 
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
