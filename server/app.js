@@ -5,6 +5,9 @@ import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
 import authenticateToken from './utils/middleware.js'
 import jwt from 'jsonwebtoken'
 import path from 'path'; 
+import { fileURLToPath } from 'url'; // Importez la méthode fileURLToPath
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); // Définissez __dirname
 
 const app = express()
 const corsOptions = {
