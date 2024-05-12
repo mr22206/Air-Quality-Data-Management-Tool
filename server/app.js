@@ -13,9 +13,14 @@ const corsOptions = {
 app.use(express.json())
 app.use(cors(corsOptions))
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the homepage!')
+})
+
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
+
 
 app.get('/api/agency', authenticateToken, async (req, res) => {
   try {
