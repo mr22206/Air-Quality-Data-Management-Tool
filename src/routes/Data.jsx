@@ -18,7 +18,7 @@ export default function Data() {
 
     try {
       // Show pending toast notification
-      const promise = fetch(`http://localhost:3000/api/${selectedValue}`, {
+      const promise = fetch(`${import.meta.env.VITE_API_URL}/api/${selectedValue}`, {
         headers: {
           accept: 'application/json',
           Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ export default function Data() {
     try {
       // Show pending toast notification
       const promise = fetch(
-        `http://localhost:3000/api/report-list/:${selectedValue}`,
+        `${import.meta.env.VITE_API_URL}/api/report-list/:${selectedValue}`,
         {
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',

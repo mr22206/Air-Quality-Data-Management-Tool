@@ -31,7 +31,7 @@ export default function AskAi() {
         headers['Authorization'] = `Bearer ${token}`
       }
 
-      const response = await fetch(`http://localhost:3000/api/ask-ai`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/ask-ai`, {
         headers,
         method: 'POST',
         body: JSON.stringify({ userInput: inputValue }),

@@ -16,7 +16,7 @@ export default function Query() {
     try {
       if (!inputValue)
         return toast('Please type your request', { type: 'warning' })
-      const response = await fetch(`http://localhost:3000/api/request`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/request`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({ userRequest: inputValue }),

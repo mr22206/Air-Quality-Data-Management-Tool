@@ -23,8 +23,8 @@ export default function Account() {
     setIsLoggingIn(true)
 
     axios
-      .post('http://localhost:3000/api/creds', { username, password })
-      .then((response) => {
+    .post(`${import.meta.env.VITE_API_URL}/api/creds`, { username: username, password: password })
+    .then((response) => {
         setIsLoggingIn(false)
         if (response.data.token) {
           login(response.data.token)
