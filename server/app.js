@@ -12,7 +12,7 @@ const corsOptions = {
 
 app.use(express.json())
 app.use(cors(corsOptions))
-app.use(express.static('./'));
+app.use(express.static('dist'));
 
 
 app.get('./index.html', (req, res) => {
