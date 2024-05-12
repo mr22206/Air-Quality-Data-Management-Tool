@@ -4,6 +4,7 @@ import cors from 'cors'
 import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
 import authenticateToken from './utils/middleware.js'
 import jwt from 'jsonwebtoken'
+import path from 'path'; 
 
 const app = express()
 const corsOptions = {
@@ -18,6 +19,9 @@ app.use(express.static('dist'));
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
+app.get('/Account.jsx', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../src/routes/Account.jsx'));
+});
 
 
 app.get('/api/agency', authenticateToken, async (req, res) => {
