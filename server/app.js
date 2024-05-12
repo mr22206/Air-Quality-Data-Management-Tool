@@ -15,9 +15,6 @@ app.use(cors(corsOptions))
 app.use(express.static('dist'));
 
 
-app.get('./index.html', (req, res) => {
-})
-
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' })
 })
