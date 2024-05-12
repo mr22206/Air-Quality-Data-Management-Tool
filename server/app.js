@@ -1,24 +1,23 @@
-import express from 'express';
-import cors from 'cors';
-import authenticateToken from './utils/middleware.js'; // Supposons que le middleware soit dans utils
-import jwt from 'jsonwebtoken';
-import { getCreds, executeClientRequest } from './utils/queries.js'; // Importation de vos gestionnaires de route
-import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js';
+import express from 'express'
+import { getCreds, executeClientRequest } from './utils/queries.js'
+import cors from 'cors'
+import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
+import authenticateToken from './utils/middleware.js'
+import jwt from 'jsonwebtoken'
 
-// Importation de la route Account.jsx
-import accountRoute from './src/Account.jsx';
-
-const app = express();
+const app = express()
 const corsOptions = {
   origin: ['http://localhost:5173', 'https://rwrz.ddns.net/'],
-};
+}
 
-app.use(express.json());
-app.use(cors(corsOptions));
+app.use(express.json())
+app.use(cors(corsOptions))
 app.use(express.static('dist'));
 
-// Utilisation de la route Account
-app.use('/api', accountRoute);
+
+app.get('/api', (req, res) => {
+  res.json({ message: 'Online!' })
+})
 
 
 app.get('/api/agency', authenticateToken, async (req, res) => {
