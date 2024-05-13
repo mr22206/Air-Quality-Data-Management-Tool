@@ -5,7 +5,7 @@ export default function WelcomeCard() {
     <>
       <p className="text-[#008037] font-medium text-[16px]">COMMENCEZ ICI</p>
       <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px] hidden sm:block">
-        BIENVENUE SUR RWZR
+        BIENVENUE SUR CNDG
       </h3>
       <h3 className="text-black font-medium text-[32px] mt-[-8px] mb-[4px] block sm:hidden">
         BIENVENUE

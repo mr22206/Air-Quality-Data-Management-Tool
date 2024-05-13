@@ -102,10 +102,10 @@ export default function Data() {
       </h2>
       <select
         onChange={handleChange}
-        className="mb-4  w-[300px] sm:w-[400px] xl:w-[780px] bg-[#008037] flex justify-center rounded-md text-white text-center font-light"
+        className="mb-4  w-[300px] sm:w-[400px] xl:w-[780px] bg-[#008037] flex justify-center rounded-md text-white text-center font-light shadow-lg"
       >
         <option value="" className="bg-white text-black">
-          Select an option
+          Selectionnez une option
         </option>
         <option value="" className="bg-gray-200 text-black">
           Check
@@ -146,10 +146,9 @@ export default function Data() {
         <option value="region-list" className="bg-gray-200 text-black">
           Region List
         </option>
-        {/* Add more options as needed */}
       </select>
       {selectedInput === 'report-list' && (
-        <select onChange={handleGasChange} className="mb-4">
+        <select onChange={handleGasChange} className="mb-4 shadow-lg">
           <option value="">Select an option</option>
           <option value="CH4">CH4</option>
           <option value="CO2_bio">CO2_bio</option>

@@ -43,7 +43,7 @@ export default function Account() {
   //TODO: get navbar here and use shadows to make it pop
   return (
     <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-green-200 ">
-      <div className="bg-white rounded-xl w-[100vw] h-[100vh] flex justify-between items-center p-2 sm:w-[600px] lg:w-[900px] sm:h-[546px]">
+      <div className="bg-white rounded-xl w-[100vw] h-[100vh] flex justify-between items-center p-2 sm:w-[600px] lg:w-[900px] sm:h-[546px] shadow-lg">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col w-full p-6 justify-center items-center "
@@ -55,12 +55,12 @@ export default function Account() {
             Please enter credentials to login.
           </p>
           <div className="flex  flex-col gap-4 sm:gap-3">
-            <div className="flex ">
-              <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px]">
-                <img className="w-5 h-5 " src="/user-icon.png"></img>
+            <div className="flex shadow-lg">
+              <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px] ">
+                <img className="w-5 h-5" src="/user-icon.png"></img>
               </label>
               <input
-                className="rounded-r-md w-[250px]  p-4 bg-white h-[56px]  text-black border border-custom-400 sm:w-full"
+                className="rounded-r-md w-[250px]  p-4 bg-white h-[56px]  text-black border border-custom-400 sm:w-full "
                 placeholder="Username"
                 required
                 type="text"
@@ -70,7 +70,7 @@ export default function Account() {
               {errors.username && <span>{errors.username.message}</span>}
             </div>
 
-            <div className="flex  rounded-md">
+            <div className="flex  rounded-md shadow-lg">
               <label className=" bg-custom-400 rounded-l-md w-[56px]  h-[56px]  flex justify-center items-center sm:w-[70px]">
                 <img className="w-5 h-5" src="/lock-icon-login.png"></img>
               </label>
@@ -84,7 +84,7 @@ export default function Account() {
             </div>
 
             <button
-              className=" h-12 w-[306px]  text-white bg-custom-400 rounded-md hover:bg-custom-500 text-l sm:w-[450px]"
+              className=" h-12 w-[306px]  text-white bg-custom-400 rounded-md hover:bg-custom-500 text-l sm:w-[450px] shadow-lg"
               type="submit"
             >
               {isLoggingIn ? 'Logging in...' : 'Log In'}
