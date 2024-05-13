@@ -20,10 +20,10 @@ app.use(cors(corsOptions));
 
 console.log(process.env.NODE_ENV);
 
-app.use(express.static(path.join('/', 'dist')));
+app.use(express.static(path.join('/app', 'dist')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join('/', 'dist', 'index.html'));
+  res.sendFile(path.join('/app', 'dist', 'index.html'));
 });
 
 app.get('/api', (req, res) => {
