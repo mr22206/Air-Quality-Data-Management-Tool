@@ -23,22 +23,23 @@ export default function Account() {
     setIsLoggingIn(true)
 
     axios
-    .post(`${import.meta.env.JAWSDB_MARIA_URL}/api/creds`, { username: username, password: password })
+    .post(process.env.JAWSDB_MARIA_URL + '/api/creds', { username: username, password: password })
     .then((response) => {
-        setIsLoggingIn(false)
-        if (response.data.token) {
-          login(response.data.token)
-          toast('Login successful 👌', { type: 'success' })
-          navigate('/ask-ai')
-        } else {
-          // Show error toast for invalid credentials
-          toast('Invalid credentials 🤯', { type: 'error' })
-        }
-      })
-      .catch((error) => {
-        setIsLoggingIn(false)
-        toast.error('An error occurred 🤯')
-      })
+      setIsLoggingIn(false);
+      if (response.data.token) {
+        login(response.data.token);
+        toast('Login successful 👌', { type: 'success' });
+        navigate('/ask-ai');
+      } else {
+        // Show error toast for invalid credentials
+        toast('Invalid credentials 🤯', { type: 'error' });
+      }
+    })
+    .catch((error) => {
+      setIsLoggingIn(false);
+      toast.error('An error occurred 🤯');
+    })
+  
   }
   //TODO: get navbar here and use shadows to make it pop
   return (
