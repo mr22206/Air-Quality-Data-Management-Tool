@@ -10,17 +10,16 @@ const corsOptions = {
   origin: ['http://localhost:5173', 'https://rwrz.ddns.net/'],
 }
 
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(express.static('dist'));
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'), function(err) {
-    if (err) {
-      res.status(500).send(__dirname)
-    }
-  })
-})
+
 
 
 app.get('/api', (req, res) => {
