@@ -14,7 +14,7 @@ const corsOptions = {
 app.use(express.json())
 app.use(cors(corsOptions))
 
-console/log(process.env.NODE_ENV )
+console.log(process.env.NODE_ENV )
 
 app.use(express.static("dist"));
 app.get("*", (req, res) => {
