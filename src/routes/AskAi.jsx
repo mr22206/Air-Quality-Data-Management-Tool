@@ -70,14 +70,14 @@ export default function AskAi() {
         onSubmit={handleSubmit}
       >
         <textarea
-          className="w-[300px] sm:w-[600px] xl:w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] "
+          className="w-[300px] sm:w-[600px] xl:w-[950px] h-[220px] resize-none bg-[#C4F4D9] border rounded-md text-md text-black relative top-[32px] left-[0%] shadow-inner "
           placeholder="Réponse..."
           value={inputValue}
           onChange={handleChange}
         ></textarea>
         <button
           type="submit"
-          className=" m-3 bg-white border border-custom-200 h-[50px] w-[150px] relative top-[32px]"
+          className=" m-3 bg-white border border-custom-200 h-[50px] w-[150px] relative top-[32px] shadow-lg"
         >
           Submit
         </button>

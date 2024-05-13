@@ -14,7 +14,7 @@ export default function NavigationMenu({ isLoggedIn, askAiLink, logout }) {
               href="/"
               className="flex justify-center align-center ml-[10px] mt-[3px]"
             >
-              <img src="/giec.png" className="h-[60px] w-auto" />
+              <img src="/logo-mte.png" className="h-[60px] w-auto" />
             </a>
             <button
               onClick={() => setIsOpen(false)}
@@ -48,14 +48,14 @@ export default function NavigationMenu({ isLoggedIn, askAiLink, logout }) {
             </a>
             {!isLoggedIn ? (
               <a
-                className="flex justify-center items-center text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px]  hover:text-green-400 hover:underline "
+                className="flex justify-center items-center text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px]  hover:text-green-400 hover:underline shadow-lg "
                 href="/account"
               >
                 <p>Login</p>
               </a>
             ) : (
               <button
-                className=" text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px]  hover:text-green-400 hover:underline "
+                className=" text-center h-[40px] w-[128px] relative bg-[#008037] text-white rounded-[4px]  hover:text-green-400 hover:underline  shadow-lg "
                 onClick={() => logout()}
               >
                 <p className="text-white">Logout</p>
