@@ -17,9 +17,7 @@ app.use(cors(corsOptions))
 console.log(process.env.NODE_ENV )
 
 app.use(express.static("dist"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname,  "dist", "index.html"));
-});
+
 
 
 app.get('/api', (req, res) => {
