@@ -1,28 +1,35 @@
-import express from 'express'
-import { getCreds, executeClientRequest } from './utils/queries.js'
-import cors from 'cors'
-import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js'
-import authenticateToken from './utils/middleware.js'
-import jwt from 'jsonwebtoken'
+import express from 'express';
+import { getCreds, executeClientRequest } from './utils/queries.js';
+import cors from 'cors';
+import { generateAiRequest, executeAiRequest } from './utils/aiUtils.js';
+import authenticateToken from './utils/middleware.js';
+import jwt from 'jsonwebtoken';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
-const app = express()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
 const corsOptions = {
   origin: ['http://localhost:5173', 'https://rwrz.ddns.net/'],
-}
+};
 
+app.use(express.json());
+app.use(cors(corsOptions));
 
-app.use(express.json())
-app.use(cors(corsOptions))
+console.log(process.env.NODE_ENV);
 
-console.log(process.env.NODE_ENV )
+app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use(express.static("dist"));
-
-
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.get('/api', (req, res) => {
-  res.json({ message: 'Online!' })
-})
+  res.json({ message: 'Online!' });
+});
+
 
 
 app.get('/api/agency', authenticateToken, async (req, res) => {
