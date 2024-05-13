@@ -11,10 +11,6 @@ const corsOptions = {
 }
 
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(express.static('dist'));

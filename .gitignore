@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-# dist                <-- Supprimez cette ligne pour inclure le répertoire dist dans Git
+dist              
 dist-ssr
 *.local
 
