@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://rwrz.ddns.net/'],
+  origin: ['http://localhost:5173', 'https://rwrz.ddns.net', 'https://datax-rwrz-ef9172c18749.herokuapp.com'],
 };
 
 app.use(express.json());
