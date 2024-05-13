@@ -22,7 +22,7 @@ console.log(process.env.NODE_ENV);
 
 app.use(express.static(path.join('/app', 'dist')));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join('/app', 'dist', 'index.html'));
 });
 
