@@ -24,7 +24,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className="sm:flex fixed inset-x-0 bottom-0 z-30 left-[50%] translate-x-[-50%] h-[450px] sm:h-[400px] px-[64px] pt-[48px] rounded-md hidden flex-col items-center bg-white md:border md:border-black w-screen xl:w-[940px] xl:items-start md:w-[500px]">
+      <div className="sm:flex fixed inset-x-0 bottom-0 z-30 left-[50%] translate-x-[-50%] h-[450px] sm:h-[400px] px-[64px] pt-[48px] rounded-md hidden flex-col items-center bg-white md:shadow-lg w-screen xl:w-[940px] xl:items-start md:w-[500px]">
         <WelcomeCard />
       </div>
     </>
