@@ -202,7 +202,7 @@ app.post('/api/ask-ai', authenticateToken, async (req, res) => {
     const userInput = req.body.userInput
 
     const request = await generateAiRequest(userInput)
-
+    console.log('JHLKJLJGJGJKGJK', request)
     const data = await executeAiRequest(request, req.pool)
     console.log(data)
     if (data === 'unauthorized') {
