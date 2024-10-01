@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://mr22206.github.io/Data-x-Giec/site-giec",
+  "homepage": "https://mr22206.github.io/Air-Quality-Data-Management-Tool",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
