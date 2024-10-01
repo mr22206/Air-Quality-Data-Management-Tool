@@ -16,9 +16,9 @@ export default function Index() {
         <h1 className="font-bold text-[48px] absolute  left-[50%] translate-x-[-50%] top-[140px] xl:top-[240px] text-black w-[300px] md:w-[700px] leading-tight block sm:hidden ">
           CNDG
         </h1>
-        <h2 className=" font-semibold text-[32px] text-[#343434] absolute left-[50%] translate-x-[-50%] top-[265px] xl:top-[365px] w-[575px] hidden md:block">
+        {/* <h2 className=" font-semibold text-[32px] text-[#343434] absolute left-[50%] translate-x-[-50%] top-[265px] xl:top-[365px] w-[575px] hidden md:block">
           Données centralisées, accès instantané et visualisation rapide
-        </h2>
+        </h2> */}
         <div className="sm:hidden font-semibold text-[32px] text-start  text-[#343434] absolute left-[50%] translate-x-[-50%] top-[250px] w-full flex flex-col items-center ">
           <WelcomeCard />
         </div>

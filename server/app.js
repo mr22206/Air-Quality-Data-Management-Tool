@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://rwrz.ddns.net', 'https://datax-rwrz-ef9172c18749.herokuapp.com'],
+  origin: ['http://localhost:5173', 'https://rwrz.ddns.net'],
 };
 
 app.use(express.json());
@@ -20,11 +20,11 @@ app.use(cors(corsOptions));
 
 console.log(process.env.NODE_ENV);
 
-app.use(express.static(path.join('/app', 'dist')));
+// app.use(express.static(path.join('/app', 'dist')));
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join('/app', 'dist', 'index.html'));
-});
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join('/app', 'dist', 'index.html'));
+// });
 
 app.get('/api', (req, res) => {
   res.json({ message: 'Online!' });

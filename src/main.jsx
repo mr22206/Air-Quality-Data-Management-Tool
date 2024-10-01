@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './routes/App.jsx'
 import './styles/global.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './routes/ErrorPage.jsx'
 import Account from './routes/Account.jsx'
 import Data from './routes/Data.jsx'
@@ -11,7 +11,7 @@ import AskAi from './routes/AskAi.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import Query from './routes/Query.jsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,

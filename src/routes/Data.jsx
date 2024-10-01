@@ -18,13 +18,16 @@ export default function Data() {
 
     try {
       // Show pending toast notification
-      const promise = fetch(`${import.meta.env.VITE_API_URL}/api/${selectedValue}`, {
-        headers: {
-          accept: 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        method: 'GET',
-      })
+      const promise = fetch(
+        `${import.meta.env.VITE_API_URL}/api/${selectedValue}`,
+        {
+          headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          method: 'GET',
+        }
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error('Failed to fetch data')
@@ -148,7 +151,7 @@ export default function Data() {
         </option>
       </select>
       {selectedInput === 'report-list' && (
-        <select onChange={handleGasChange} className="mb-4 shadow-lg">
+        <select onChange={handleGasChange} className="mb-4 mt-[25px] shadow-lg">
           <option value="">Select an option</option>
           <option value="CH4">CH4</option>
           <option value="CO2_bio">CO2_bio</option>
@@ -163,7 +166,11 @@ export default function Data() {
 
       {error && <div className="text-red-600">Error: {error}</div>}
 
-      <div className="absolute top-[364px] pb-[32px]">
+      <div
+        className={`absolute top-[364px] pb-[32px] ${
+          selectedInput === 'report-list' && 'pt-[100px]'
+        }`}
+      >
         {data && <ObjectArrayRenderer data={data.queryResult} />}
       </div>
     </div>

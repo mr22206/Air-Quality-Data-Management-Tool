@@ -23,7 +23,7 @@ export default function Account() {
     setIsLoggingIn(true)
 
     axios
-    .post(`${import.meta.env.JAWSDB_MARIA_URL}/api/creds`, { username: username, password: password })
+    .post(`${import.meta.env.VITE_API_URL}/api/creds`, { username: username, password: password })
     .then((response) => {
         setIsLoggingIn(false)
         if (response.data.token) {
