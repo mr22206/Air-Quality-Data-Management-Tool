@@ -9,7 +9,7 @@ export default function NavBar() {
     <div className="bg-white w-[100%] h-[65px] fixed top-0 left-0 justify-center align-center z-50 flex">
       <div className="flex justify-between items-center w-[1152px]">
         <Link to="/" className="flex justify-center align-center ml-[16px]">
-          <img src="giec.png" className="h-[60px] w-auto" />
+          <img src="/Air-Quality-Data-Management-Tool/giec.png" className="h-[60px] w-auto" />
         </Link>
         <NavigationMenu
           isLoggedIn={isLoggedIn}
