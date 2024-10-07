@@ -31,23 +31,22 @@ Le projet utilise des technologies modernes pour assurer une **gestion fluide** 
 ### 1. **Gestion des utilisateurs et des privilèges**
 L'outil permet une gestion centralisée des utilisateurs et de leurs rôles. Chaque rôle détermine les actions qu'un utilisateur peut effectuer (requêtes SQL, ajout de données, etc.).
 
-![image](https://github.com/user-attachments/assets/cd1074b8-4701-4449-b118-b517b0b55a11)
+![image](https://github.com/user-attachments/assets/79886ad2-dcfc-4d13-b4fe-17fc1c08cc52)
 
 ### 2. **Centralisation des données météorologiques**
 Toutes les données des capteurs sur la qualité de l'air sont centralisées et peuvent être visualisées ou exportées pour l'analyse.
-- 💡 **Illustration suggérée** : Tableau des données collectées par les capteurs (température, niveaux de CO2, etc.).
+
+![image](https://github.com/user-attachments/assets/a90c51e7-6f33-4a42-93d0-de888a00ed06)
 
 ### 3. **Requêtes SQL interactives**
 Les utilisateurs peuvent exécuter des requêtes SQL pour extraire des informations ou mettre à jour les données, selon leurs droits d'accès.
-- 💡 **Illustration suggérée** : Interface utilisateur permettant de saisir des requêtes SQL personnalisées.
+
+![image](https://github.com/user-attachments/assets/067d9f8f-0803-41d2-bbef-35790ecf9a62)
 
 ### 4. **Assistant AI pour les requêtes SQL**
 Un assistant AI aide les utilisateurs à formuler des requêtes SQL en langage naturel pour interroger la base de données.
-- 💡 **Illustration suggérée** : Capture d'écran de l'assistant avec une requête en langage naturel convertie en SQL.
 
-### 5. **Publication de rapports**
-Des rapports périodiques sur la qualité de l'air peuvent être générés automatiquement et consultés par les administrateurs.
-- 💡 **Illustration suggérée** : Aperçu d'un rapport généré avec des graphiques sur les niveaux de pollution.
+![image](https://github.com/user-attachments/assets/feb951d2-c927-45d9-a61c-2926fa7a61c0)
 
 ---
 
