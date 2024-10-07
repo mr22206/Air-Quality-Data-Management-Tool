@@ -30,7 +30,8 @@ Le projet utilise des technologies modernes pour assurer une **gestion fluide** 
 
 ### 1. **Gestion des utilisateurs et des privilèges**
 L'outil permet une gestion centralisée des utilisateurs et de leurs rôles. Chaque rôle détermine les actions qu'un utilisateur peut effectuer (requêtes SQL, ajout de données, etc.).
-- 💡 **Illustration suggérée** : Capture d'écran de la page d'administration des utilisateurs.
+- 💡 ![image](https://github.com/user-attachments/assets/cd1074b8-4701-4449-b118-b517b0b55a11)
+
 
 ### 2. **Centralisation des données météorologiques**
 Toutes les données des capteurs sur la qualité de l'air sont centralisées et peuvent être visualisées ou exportées pour l'analyse.
