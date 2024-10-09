@@ -1,4 +1,4 @@
-# [DATA-X - Outil de Gestion des Données sur la Qualité de l'Air](https://mr22206.github.io/Air-Quality-Data-Management-Tool/)
+# [Air-Quality-Data-Management-Tool](https://mr22206.github.io/Air-Quality-Data-Management-Tool/)
 
 Bienvenue sur le dépôt GitHub de l'**outil de gestion des données sur la qualité de l'air** développé par **DATA-X** pour le compte du **Ministère de l'Écologie**. Ce dépôt contient le code source de l'application, conçue pour centraliser les données météorologiques, gérer le personnel et les capteurs, et publier des rapports sur la qualité de l'air.
 
